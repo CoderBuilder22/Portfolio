@@ -1,0 +1,269 @@
+.home-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+  min-height: 100vh;
+}
+
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  padding: 60px 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.header-left {
+  flex: 2;
+  text-align: left;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-left h1 {
+  color: #fff;
+  font-size: 3rem;
+  margin: 0 0 10px;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.header-left p {
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  align-self: flex-start;
+}
+
+.contact-button {
+  padding: 12px 30px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.contact-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.header-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-placeholder {
+  margin-bottom: 20px;
+}
+
+.avatar-circle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.avatar-circle:hover {
+  transform: scale(1.1);
+}
+
+.download-cv {
+  padding: 12px 30px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.download-cv:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Projects Section */
+.projects-section {
+  margin-bottom: 50px;
+  padding: 40px 20px;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.projects-section h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.projects-section h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #e74c3c;
+  margin: 10px auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.col-md-3 {
+  flex: 0 0 32%;
+  max-width: 32%;
+  padding: 0 2px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 50%; /* 2 projects in a row on mobile */
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .col-md-4 {
+    flex: 0 0 100%; /* 1 project in a row on small mobile */
+    max-width: 100%;
+  }
+}
+
+/* Talents Section */
+.talents-section {
+  padding: 40px 20px;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.talents-section h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.talents-section h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #e74c3c;
+  margin: 10px auto;
+}
+
+.talents-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.talent-category {
+  background-color: #222;
+  padding: 20px;
+  flex: 1;
+  min-width: 250px;
+  transition: transform 0.3s ease;
+}
+
+.talent-category:hover {
+  transform: translateY(-5px);
+}
+
+.talent-category h3 {
+  color: #e74c3c;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.talent-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.talent-category li {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.talent-category li:hover {
+  color: #fff;
+}
+
+.tech-icon {
+  font-size: 1.5rem;
+  color: #e74c3c;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-page {
+    padding: 10px;
+  }
+
+  .header-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-left {
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .header-left h1 {
+    font-size: 2.5rem;
+  }
+
+  .header-left p {
+    font-size: 1rem;
+  }
+
+  .talents-content {
+    flex-direction: column;
+  }
+
+  .talent-category {
+    min-width: auto;
+  }
+}
