@@ -4,6 +4,7 @@ import "./Home.css";
 import ProjectCard from "../components/ProjectCard";
 import { SiMongodb, SiMysql, SiReact, SiExpress, SiJavascript, SiPython } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
+import avatar from '../assets/avatar.jpg';
 
 export default function Home() {
   const { t } = useTranslation();
@@ -46,8 +47,7 @@ export default function Home() {
         </div>
         <div className="header-right">
           <div className="avatar-placeholder">
-            {/* Placeholder for avatar photo */}
-            <img src="/avatar.jpg" alt="Avatar" className="avatar-circle" />
+            <img src={avatar} alt="Avatar" className="avatar-circle" />
           </div>
           <button className="download-cv" onClick={() => { const link = document.createElement('a'); link.href = '/cv.pdf'; link.download = 'cv.pdf'; link.click(); }}>{t('downloadCV')}</button>
         </div>
