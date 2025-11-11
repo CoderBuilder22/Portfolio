@@ -5,6 +5,10 @@ import ProjectCard from "../components/ProjectCard";
 import { SiMongodb, SiMysql, SiReact, SiExpress, SiJavascript, SiPython } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import avatar from '../assets/avatar.jpg';
+import DropLab from "../assets/DropLab.png";
+import MusicShop from "../assets/MusicShop.png";
+import FashionVibes from "../assets/FashionVibes.png";
+import OnlineEducation from "../assets/OnlineEducation.png";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -15,24 +19,28 @@ export default function Home() {
       stack: "Symfony PHP",
       description: t('droplabDesc'),
       link: "https://your-droplab-link.vercel.app",
+      image: DropLab,
     },
     {
       name: "MusicShop",
       stack: "MERN Stack",
       description: t('musicshopDesc'),
       link: "https://68ef9b42479236463f53767b--verdant-dragon-84f168.netlify.app/",
+      image: MusicShop,
     },
     {
       name: "FashionVibes",
       stack: "HTML, CSS",
       description: t('staticProjectDesc'),
       link: "https://your-static-project.vercel.app",
+      image: FashionVibes,
     },
     {
       name: "Online Education",
       stack: "MERN Stack",
       description: t('onlineEducationDesc'),
       link: "https://68ef9dce43d0084fabf830ed--glowing-eclair-7b62e2.netlify.app/",
+      image: OnlineEducation,
     },
   ];
 

@@ -13,16 +13,19 @@
 }
 
 .card-img-top {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: 200px;
   color: white;
   padding: 20px;
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .card-body {
   padding: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .card-title {
@@ -32,7 +35,7 @@
 }
 
 .text-muted {
-  color: #666;
+  color: white;
   font-size: 0.9rem;
   margin-bottom: 15px;
 }
