@@ -10,31 +10,48 @@ body {
   color: #e0e0e0;
   background: linear-gradient(135deg, #0f0f0f 0%, #1c1c1c 50%, #0f0f0f 100%);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
 
 main {
   min-height: calc(100vh - 120px);
   padding: 4rem 2rem;
+  position: relative;
 }
-
-
 
 .page-content {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
   color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 1s ease-out;
 }
 
 h2 {
@@ -42,14 +59,25 @@ h2 {
   border-bottom: 2px solid #ff6b35;
   padding-bottom: 0.5rem;
   margin-top: 2rem;
+  position: relative;
 }
 
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b35, #f7931e);
+  animation: slideIn 0.5s ease-out 0.5s both;
+}
 
 p {
   margin-bottom: 1rem;
   line-height: 1.6;
+  color: #ccc;
 }
-
 
 ul, ol {
   margin-left: 2rem;
@@ -58,29 +86,48 @@ ul, ol {
 
 li {
   margin-bottom: 0.5rem;
+  color: #ccc;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
+}
 
 @media (max-width: 768px) {
   main {
     padding: 1rem 0.5rem;
   }
-  
+
   nav ul {
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
   }
-  
+
   h1 {
     font-size: 2rem;
   }
-  
+
   h2 {
     font-size: 1.5rem;
   }
 }
-
 
 .text-center {
   text-align: center;
@@ -90,4 +137,14 @@ li {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

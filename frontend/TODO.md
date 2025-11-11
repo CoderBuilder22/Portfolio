@@ -1,8 +1,10 @@
-# TODO: Complete French Translations and Add Missing Sections
+# TODO: Add More Styles to All JSX Pages
 
-## Tasks
-- [x] Update French translation.json for capitalization and any missing keys
-- [x] Edit Home.jsx to use translations for project descriptions
-- [x] Edit Projects.jsx to use translations for project descriptions and title
-- [x] Edit About.jsx to add contact section
-- [x] Verify all translations are complete and correct
+- [x] Create ProjectCard.css and update ProjectCard.jsx to import it
+- [x] Update App.css with enhanced styles
+- [x] Update Home.css with enhanced styles
+- [x] Update About.css with enhanced styles
+- [x] Update Contact.css with enhanced styles
+- [x] Update Projects.css with enhanced styles
+- [x] Update Navbar.css with enhanced styles
+- [x] Update Footer.css with enhanced styles

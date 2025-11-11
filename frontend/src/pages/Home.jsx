@@ -43,7 +43,7 @@ export default function Home() {
         <div className="header-left">
           <h1>Ahmed Nasri</h1>
           <p>{t('description')}</p>
-          <button className="contact-button" onClick={() => window.location.href = '/contact'}>{t('contactMe')}</button>
+          <button className="contact-button" onClick={() => window.location.href = '/Portfolio/contact'}>{t('contactMe')}</button>
         </div>
         <div className="header-right">
           <div className="avatar-placeholder">
