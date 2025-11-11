@@ -23,7 +23,7 @@ export default function Home() {
       link: "https://68ef9b42479236463f53767b--verdant-dragon-84f168.netlify.app/",
     },
     {
-      name: "Projet Statique",
+      name: "FashionVibes",
       stack: "HTML, CSS",
       description: t('staticProjectDesc'),
       link: "https://your-static-project.vercel.app",
