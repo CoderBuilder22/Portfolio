@@ -20,14 +20,26 @@ const ProjectCard = ({ project }) => {
           <h4 className="card-title">{project.name}</h4>
           <p className="project-stack">{project.stack}</p>
           <p>{project.description}</p>
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn"
-          >
-            {t("viewProject")}
-          </a>
+          {project.link ? (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+            >
+              {t("viewProject")}
+            </a>
+          ) : (
+            <button
+              type="button"
+              className="btn"
+              disabled
+              aria-disabled="true"
+              title={t("notDeployed")}
+            >
+              {t("notDeployed")}
+            </button>
+          )}
         </div>
       </div>
     </div>

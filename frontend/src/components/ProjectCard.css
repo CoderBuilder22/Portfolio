@@ -56,3 +56,14 @@
   color: white;
   text-decoration: none;
 }
+
+/* Disabled button state (for projects without a link) */
+.btn[disabled],
+.btn.disabled {
+  background: #c0c0c0;
+  color: #6b6b6b;
+  cursor: not-allowed;
+  opacity: 0.9;
+  box-shadow: none;
+  pointer-events: none;
+}

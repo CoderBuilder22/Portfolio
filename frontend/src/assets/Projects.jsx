@@ -23,7 +23,7 @@ export default function Projects() {
       name: "MusicShop",
       stack: "MERN Stack",
       description: t('musicshopDesc'),
-      link: "https://68ef9b42479236463f53767b--verdant-dragon-84f168.netlify.app/",
+      link: "",
       image: MusicShop,
     },
     {
@@ -37,7 +37,7 @@ export default function Projects() {
       name: "Online Education",
       stack: "MERN Stack",
       description: t('onlineEducationDesc'),
-      link: "https://68ef9dce43d0084fabf830ed--glowing-eclair-7b62e2.netlify.app/",
+      link: "",
       image: OnlineEducation,
     },
   ];

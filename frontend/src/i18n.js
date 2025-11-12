@@ -35,6 +35,8 @@ const resources = {
       "licenceDegree": "Applied Bachelor's Degree - ISET Rades (2023-2026)",
       "baccalaureate": "Computer Science Baccalaureate - Ras Jebel High School (2023)",
       "viewProject": "View Project"
+      ,
+      "notDeployed": "Not deployed"
     }
   },
   fr: {
@@ -70,6 +72,8 @@ const resources = {
       "licenceDegree": "Licence Appliquée - ISET Rades (2023-2026)",
       "baccalaureate": "Baccalauréat Informatique - Lycée Ras Jebel (2023)",
       "viewProject": "Voir le projet"
+      ,
+      "notDeployed": "Non déployé"
     }
   }
 };
