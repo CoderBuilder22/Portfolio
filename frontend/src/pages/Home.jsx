@@ -38,18 +38,18 @@ export default function Home() {
       image: MusicShop,
     },
     {
-      name: "FashionVibes",
-      stack: "HTML, CSS",
-      description: t("staticProjectDesc"),
-      link: "https://your-static-project.vercel.app",
-      image: FashionVibes,
-    },
-    {
       name: "Online Education",
       stack: "MERN Stack",
       description: t("onlineEducationDesc"),
       link: "https://68ef9dce43d0084fabf830ed--glowing-eclair-7b62e2.netlify.app/",
       image: OnlineEducation,
+    },
+    {
+      name: "FashionVibes",
+      stack: "HTML, CSS",
+      description: t("staticProjectDesc"),
+      link: "https://your-static-project.vercel.app",
+      image: FashionVibes,
     },
   ];
 

@@ -18,7 +18,7 @@ const ProjectCard = ({ project }) => {
         ></div>
         <div className="card-body">
           <h4 className="card-title">{project.name}</h4>
-          <p className="text-muted">{project.stack}</p>
+          <p className="project-stack">{project.stack}</p>
           <p>{project.description}</p>
           <a
             href={project.link}

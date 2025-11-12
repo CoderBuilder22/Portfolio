@@ -30,7 +30,7 @@ export default function Projects() {
       name: "FashionVibes",
       stack: "HTML, CSS",
       description: t('staticProjectDesc'),
-      link: "https://your-static-project.vercel.app",
+      link: "https://coderbuilder22.github.io/Project-Static-Ecommerce/mainPage.html",
       image: FashionVibes,
     },
     {
