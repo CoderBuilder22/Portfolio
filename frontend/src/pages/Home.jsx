@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
@@ -21,6 +22,13 @@ import OnlineEducation from "../assets/OnlineEducation.png";
 export default function Home() {
   const { t } = useTranslation();
   const navigate = useNavigate(); // ✅ move useNavigate here
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    message: "",
+  });
+  const [formStatus, setFormStatus] = useState(null);
 
   const projects = [
     {
@@ -141,6 +149,135 @@ export default function Home() {
               </li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="contact-section">
+        <h2>{t("contact")}</h2>
+        <div className="contact-container">
+          <form
+            className="contact-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              // Basic client-side validation
+              const emailRe = /\S+@\S+\.\S+/;
+              if (!formData.name || !formData.email || !formData.message) {
+                setFormStatus(t("pleaseFillRequired") || "Please fill required fields.");
+                return;
+              }
+              if (!emailRe.test(formData.email)) {
+                setFormStatus(t("invalidEmail") || "Please enter a valid email.");
+                return;
+              }
+
+              // Attempt to send via EmailJS if configured via Vite env vars
+              const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+              const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+              const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+              const templateParams = {
+                from_name: formData.name,
+                company: formData.company,
+                from_email: formData.email,
+                message: formData.message,
+                to_email: "ahmednasrism@gmail.com",
+              };
+
+              if (serviceID && templateID && publicKey) {
+                // Debug: log presence of env vars and template params (do not expose secret in UI)
+                console.log("EmailJS config present:", {
+                  serviceIDExists: !!serviceID,
+                  templateIDExists: !!templateID,
+                  publicKeyExists: !!publicKey,
+                });
+                console.log("EmailJS templateParams:", templateParams);
+
+                setFormStatus(t("sending") || "Sending...");
+                emailjs
+                  .send(serviceID, templateID, templateParams, publicKey)
+                  .then((result) => {
+                    console.log("EmailJS success:", result.text);
+                    setFormStatus(t("messageSent") || "Message sent — thank you!");
+                    setFormData({ name: "", company: "", email: "", message: "" });
+                  })
+                  .catch((err) => {
+                    // EmailJS returns HTTP errors with status/text on the error object; log them for debugging
+                    console.error("EmailJS error:", err);
+                    try {
+                      // some errors expose 'status' and 'text'
+                      console.error("EmailJS status:", err.status);
+                      console.error("EmailJS text:", err.text || err.message || err);
+                    } catch (e) {
+                      /* ignore */
+                    }
+
+                    setFormStatus(
+                      t("sendError") ||
+                        `Could not send message (code: ${err && err.status ? err.status : "unknown"}). You can email me directly at ahmednasrism@gmail.com.`
+                    );
+                  });
+              } else {
+                // Fallback: open mail client with prefilled message (user must send manually)
+                const subject = encodeURIComponent(
+                  `Portfolio contact from ${formData.name}`
+                );
+                const body = encodeURIComponent(
+                  `${formData.message}\n\nCompany: ${formData.company}\nEmail: ${formData.email}`
+                );
+                const mailto = `mailto:ahmednasrism@gmail.com?subject=${subject}&body=${body}`;
+                window.location.href = mailto;
+                setFormStatus(t("openedMailClient") || "Opened your mail client.");
+              }
+            }}
+          >
+            <input
+              type="text"
+              name="name"
+              aria-label="Name"
+              placeholder={t("yourName") || "Your name"}
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              required
+            />
+
+            <input
+              type="text"
+              name="company"
+              aria-label="Company"
+              placeholder={t("company") || "Company (optional)"}
+              value={formData.company}
+              onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+            />
+
+            <input
+              type="email"
+              name="email"
+              aria-label="Email"
+              placeholder={t("yourEmail") || "Your email"}
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+            />
+
+            <textarea
+              name="message"
+              aria-label="Message"
+              placeholder={t("yourMessage") || "Your message"}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              required
+              className="full"
+              rows={6}
+            />
+
+            <div className="form-actions full">
+              <button type="submit" className="submit-button">
+                {t("sendMessage") || "Send message"}
+              </button>
+              {formStatus && <p className="form-status">{formStatus}</p>}
+            </div>
+          </form>
         </div>
       </section>
     </div>
