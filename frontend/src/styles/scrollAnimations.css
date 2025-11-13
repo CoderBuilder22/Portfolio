@@ -1,0 +1,39 @@
+/* Scroll-triggered animation utilities */
+.animate-on-scroll {
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-hidden { /* initial state */
+  opacity: 0;
+  transform: translateY(18px) scale(0.99);
+  transition: opacity 520ms cubic-bezier(.2,.9,.3,1), transform 520ms cubic-bezier(.2,.9,.3,1);
+}
+
+.animate-on-scroll.is-visible { /* when in view */
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Variants */
+.animate-on-scroll.fade.is-hidden { opacity: 0; transform: none; }
+.animate-on-scroll.fade.is-visible { opacity: 1; transform: none; transition: opacity 420ms ease-out; }
+
+.animate-on-scroll.fade-up.is-hidden { opacity: 0; transform: translateY(22px); }
+.animate-on-scroll.fade-up.is-visible { opacity: 1; transform: translateY(0); transition: opacity 560ms cubic-bezier(.2,.9,.3,1), transform 560ms cubic-bezier(.2,.9,.3,1); }
+
+.animate-on-scroll.pop.is-hidden { opacity: 0; transform: translateY(12px) scale(0.96); }
+.animate-on-scroll.pop.is-visible { opacity: 1; transform: translateY(0) scale(1); transition: transform 420ms cubic-bezier(.2,.9,.3,1), opacity 420ms ease-out; }
+
+.animate-on-scroll.slide-left.is-hidden { opacity: 0; transform: translateX(30px); }
+.animate-on-scroll.slide-left.is-visible { opacity: 1; transform: translateX(0); transition: opacity 560ms ease-out, transform 560ms cubic-bezier(.2,.9,.3,1); }
+
+.animate-on-scroll.fade-out.is-hidden { opacity: 0; transform: none; }
+.animate-on-scroll.fade-out.is-visible { opacity: 1; transition: opacity 520ms ease-in; }
+
+/* Support existing anim-delay-* classes by applying inline transition-delay when present */
+.animate-on-scroll.anim-delay-1.is-visible { transition-delay: 0.12s; }
+.animate-on-scroll.anim-delay-2.is-visible { transition-delay: 0.28s; }
+.animate-on-scroll.anim-delay-3.is-visible { transition-delay: 0.42s; }
+
+/* Make sure images and children inside flow normally */
+.animate-on-scroll > * { backface-visibility: hidden; }

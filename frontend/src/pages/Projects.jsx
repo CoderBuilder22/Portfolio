@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import "./Projects.css";
 import ProjectCard from "../components/ProjectCard";
+import AnimateOnScroll from "../components/AnimateOnScroll";
 import DropLab from "../assets/DropLab.png";
 import MusicShop from "../assets/MusicShop.png";
 import FashionVibes from "../assets/FashionVibes.png";
@@ -43,12 +44,14 @@ export default function Projects() {
 
   return (
     <div className="projects-page container">
-      <h2>{t("projects")}</h2>
-      <div className="row">
-        {projects.map((p) => (
-          <ProjectCard key={p.name} project={p} />
-        ))}
-      </div>
+      <AnimateOnScroll animation="fade-up" className="projects-inner">
+        <h2>{t("projects")}</h2>
+        <div className="row">
+          {projects.map((p) => (
+            <ProjectCard key={p.name} project={p} />
+          ))}
+        </div>
+      </AnimateOnScroll>
     </div>
   );
 }

@@ -58,7 +58,7 @@
   margin-bottom: 0 !important;
   font-size: 1rem;
   font-weight: 300;
-  text-align: left;
+  text-align: center;
   position: relative;
   z-index: 1;
   animation: fadeInUp 1s ease-out 0.2s both;
@@ -69,7 +69,6 @@
 
 .footer p:hover {
   color: #ff6b35 !important;
-  transform: translateX(5px);
 }
 
 .footer-links {

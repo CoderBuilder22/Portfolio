@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import ProjectCard from "../components/ProjectCard";
+import AnimateOnScroll from "../components/AnimateOnScroll";
 import {
   SiMongodb,
   SiMysql,
@@ -64,8 +65,9 @@ export default function Home() {
   return (
     <div className="home-page">
       {/* Header Section */}
-      <section className="header-section">
-        <div className="header-left">
+      <AnimateOnScroll animation="fade-up" className="header-wrapper">
+        <section className="header-section">
+          <div className="header-left">
           <h1>Ahmed Nasri</h1>
           <p>{t("description")}</p>
           <button
@@ -82,8 +84,14 @@ export default function Home() {
           <button
             className="download-cv"
             onClick={() => {
+
               const link = document.createElement("a");
-              link.href = "/cv.pdf";
+              const base = import.meta.env.BASE_URL || "/"; 
+              link.href = `${base}cv.pdf`;
+        
+              link.target = "_blank";
+              link.rel = "noopener noreferrer";
+
               link.download = "cv.pdf";
               link.click();
             }}
@@ -91,22 +99,26 @@ export default function Home() {
             {t("downloadCV")}
           </button>
         </div>
-      </section>
+        </section>
+      </AnimateOnScroll>
 
       {/* Projects Section */}
-      <section className="projects-section">
-        <h2>{t("projects")}</h2>
-        <div className="row">
-          {projects.slice(0, 3).map((p) => (
-            <ProjectCard key={p.name} project={p} />
-          ))}
-        </div>
-      </section>
+      <AnimateOnScroll animation="fade-up" className="projects-section-wrapper anim-delay-1">
+        <section className="projects-section">
+          <h2>{t("projects")}</h2>
+          <div className="row">
+            {projects.slice(0, 3).map((p) => (
+              <ProjectCard key={p.name} project={p} />
+            ))}
+          </div>
+        </section>
+      </AnimateOnScroll>
 
       {/* Talents Section */}
-      <section className="talents-section">
-        <h2>{t("skills")}</h2>
-        <div className="talents-content">
+      <AnimateOnScroll animation="pop" className="talents-section-wrapper anim-delay-2">
+        <section className="talents-section">
+          <h2>{t("skills")}</h2>
+          <div className="talents-content">
           <div className="talent-category">
             <h3>
               <i className="bi bi-database"></i> {t("databaseManagement")}
@@ -149,13 +161,15 @@ export default function Home() {
               </li>
             </ul>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
+      </AnimateOnScroll>
 
       {/* Contact Section */}
-      <section className="contact-section">
-        <h2>{t("contact")}</h2>
-        <div className="contact-container">
+      <AnimateOnScroll animation="fade-up" className="contact-section-wrapper anim-delay-3">
+        <section className="contact-section">
+          <h2>{t("contact")}</h2>
+          <div className="contact-container">
           <form
             className="contact-form"
             onSubmit={(e) => {
@@ -208,9 +222,9 @@ export default function Home() {
                       // some errors expose 'status' and 'text'
                       console.error("EmailJS status:", err.status);
                       console.error("EmailJS text:", err.text || err.message || err);
-                    } catch (e) {
-                      /* ignore */
-                    }
+                      } catch (_) {
+                        /* ignore */
+                      }
 
                     setFormStatus(
                       t("sendError") ||
@@ -235,7 +249,7 @@ export default function Home() {
               type="text"
               name="name"
               aria-label="Name"
-              placeholder={t("yourName") || "Your name"}
+              placeholder={t("your Name") || "Your name"}
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
@@ -254,7 +268,7 @@ export default function Home() {
               type="email"
               name="email"
               aria-label="Email"
-              placeholder={t("yourEmail") || "Your email"}
+              placeholder={t("your Email") || "Your email"}
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
@@ -263,7 +277,7 @@ export default function Home() {
             <textarea
               name="message"
               aria-label="Message"
-              placeholder={t("yourMessage") || "Your message"}
+              placeholder={t("your Message") || "Your message"}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               required
@@ -279,7 +293,8 @@ export default function Home() {
             </div>
           </form>
         </div>
-      </section>
+        </section>
+      </AnimateOnScroll>
     </div>
   );
 }

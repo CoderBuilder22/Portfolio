@@ -7,7 +7,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div className="col-md-4 mb-4">
-      <div className="card project-card h-100">
+      <div className="card project-card h-100 anim-fade-in-up">
         <div
           className="card-img-top"
           style={{

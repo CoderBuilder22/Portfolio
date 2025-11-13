@@ -28,9 +28,9 @@ export default function Navbar() {
         // fallback: toggle classes (best-effort)
         navMenu.classList.remove("show");
       }
-    } catch (e) {
+    } catch (_) {
       // silent fail — not critical
-      // console.warn('Could not close nav menu', e);
+      // console.warn('Could not close nav menu', _);
     }
   };
 
