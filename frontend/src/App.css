@@ -8,9 +8,9 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #e0e0e0;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1c1c1c 50%, #0f0f0f 100%);
-  min-height: 100vh;
-  overflow-x: hidden;
+  background: #000000;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 body::before {
@@ -27,14 +27,17 @@ body::before {
 }
 
 main {
-  min-height: calc(100vh - 120px);
-  padding: 4rem 2rem;
+  min-height: 100vh;
+  padding: 0;
   position: relative;
+  margin: 0;
+  width: 100%;
 }
 
 .page-content {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -56,7 +59,6 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  border-bottom: 2px solid #ff6b35;
   padding-bottom: 0.5rem;
   margin-top: 2rem;
   position: relative;

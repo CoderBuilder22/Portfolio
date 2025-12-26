@@ -7,6 +7,7 @@ import DropLab from "../assets/DropLab.png";
 import MusicShop from "../assets/MusicShop.png";
 import FashionVibes from "../assets/FashionVibes.png";
 import OnlineEducation from "../assets/OnlineEducation.png";
+import Khadameni from "../assets/Khadamni.png";
 
 export default function Projects() {
   const { t } = useTranslation();
@@ -39,6 +40,13 @@ export default function Projects() {
       description: t("staticProjectDesc"),
       link: "https://coderbuilder22.github.io/Project-Static-Ecommerce/mainPage.html",
       image: FashionVibes,
+    },
+    {
+      name: "Khadameni",
+      stack: "MERN Stack",
+      description: t("khadameniDesc"),
+      link: "",
+      image: Khadameni,
     },
   ];
 

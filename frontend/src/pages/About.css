@@ -3,6 +3,8 @@
   padding: 0;
   position: relative;
   min-height: 100vh;
+  width: 100%;
+  margin: 0;
 }
 
 .about-page::before {
@@ -45,17 +47,17 @@
 }
 
 .about-section {
-  margin-bottom: 40px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-  border-radius: 20px;
-  padding: 40px;
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 0;
+  background: #1a1a1a;
+  border-radius: 0;
+  padding: 40px 40px;
+  backdrop-filter: none;
+  border: none;
   transition: all 0.4s ease;
   position: relative;
   z-index: 1;
   animation: fadeInUp 1s ease-out 0.5s both;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .about-section::before {
@@ -120,16 +122,16 @@
 }
 
 .about-section li {
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(102, 126, 234, 0.1));
-  border: 1px solid rgba(255, 107, 53, 0.3);
-  border-radius: 15px;
+  background: #0a0a0a;
+  border: none;
+  border-radius: 0;
   padding: 20px;
   color: #fff;
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
   animation: slideInFromRight 1s ease-out 0.9s both;
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+  box-shadow: none;
 }
 
 .about-section li::before {
